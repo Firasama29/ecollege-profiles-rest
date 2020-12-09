@@ -1,49 +1,49 @@
 package com.ecollege.model;
 import java.io.Serializable;
-import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Profile")
+//@Document(collection = "Profile")
 public class Profile implements Serializable{
 
 	private static final long serialVersionUID = 6586862029509019898L;
 
 	@Id
 	private long studentId;
-	private String firstName;
-	private String surName;
+	private String studentName;
 	private String email;
 	private String confirmEmail;
 	private String password;
 	private String confirmPassword;
-	private Date dob;
 	private String nationality;
 	private String course;
 	private String intake;
-	private String currentAddress;
+	private int currentYear;
+	private int graduationYear;
+	private int age;
 	
 	public Profile() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Profile(long studentId, String firstName, String surName, String email, String confirmEmail, String password,
-			String confirmPassword, Date dob, String nationality, String course, String intake, String currentAddress) {
+
+	public Profile(long studentId, String studentName, String email, String confirmEmail, String password,
+			String confirmPassword, String nationality, String course, String intake, int currentYear,
+			int graduationYear, int age) {
 		super();
 		this.studentId = studentId;
-		this.firstName = firstName;
-		this.surName = surName;
+		this.studentName = studentName;
 		this.email = email;
 		this.confirmEmail = confirmEmail;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
-		this.dob = dob;
 		this.nationality = nationality;
 		this.course = course;
 		this.intake = intake;
-		this.currentAddress = currentAddress;
+		this.currentYear = currentYear;
+		this.graduationYear = graduationYear;
+		this.age = age;
 	}
 
 	public long getStudentId() {
@@ -54,20 +54,12 @@ public class Profile implements Serializable{
 		this.studentId = studentId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getStudentName() {
+		return studentName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getSurName() {
-		return surName;
-	}
-
-	public void setSurName(String surName) {
-		this.surName = surName;
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 
 	public String getEmail() {
@@ -102,14 +94,6 @@ public class Profile implements Serializable{
 		this.confirmPassword = confirmPassword;
 	}
 
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
 	public String getNationality() {
 		return nationality;
 	}
@@ -134,19 +118,35 @@ public class Profile implements Serializable{
 		this.intake = intake;
 	}
 
-	public String getCurrentAddress() {
-		return currentAddress;
+	public int getCurrentYear() {
+		return currentYear;
 	}
 
-	public void setCurrentAddress(String currentAddress) {
-		this.currentAddress = currentAddress;
+	public void setCurrentYear(int currentYear) {
+		this.currentYear = currentYear;
+	}
+
+	public int getGraduationYear() {
+		return graduationYear;
+	}
+
+	public void setGraduationYear(int graduationYear) {
+		this.graduationYear = graduationYear;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	@Override
 	public String toString() {
-		return "Profile [studentId=" + studentId + ", firstName=" + firstName + ", surName=" + surName + ", email="
-				+ email + ", confirmEmail=" + confirmEmail + ", password=" + password + ", confirmPassword="
-				+ confirmPassword + ", dob=" + dob + ", nationality=" + nationality + ", course=" + course + ", intake="
-				+ intake + ", currentAddress=" + currentAddress + "]";
+		return "Profile [studentId=" + studentId + ", studentName=" + studentName + ", email=" + email
+				+ ", confirmEmail=" + confirmEmail + ", password=" + password + ", confirmPassword=" + confirmPassword
+				+ ", nationality=" + nationality + ", course=" + course + ", intake="
+				+ intake + ", currentYear=" + currentYear + ", graduationYear=" + graduationYear + ", age=" + age + "]";
 	}
 }
